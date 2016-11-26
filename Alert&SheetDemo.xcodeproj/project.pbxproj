@@ -9,16 +9,14 @@
 /* Begin PBXBuildFile section */
 		08F664741D615D84005C3E82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F664731D615D84005C3E82 /* main.m */; };
 		08F664771D615D84005C3E82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F664761D615D84005C3E82 /* AppDelegate.m */; };
-		08F6647A1D615D84005C3E82 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F664791D615D84005C3E82 /* ViewController.m */; };
 		08F6647D1D615D84005C3E82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F6647B1D615D84005C3E82 /* Main.storyboard */; };
 		08F6647F1D615D84005C3E82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08F6647E1D615D84005C3E82 /* Assets.xcassets */; };
 		08F664821D615D84005C3E82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F664801D615D84005C3E82 /* LaunchScreen.storyboard */; };
 		08F6648D1D615D84005C3E82 /* Alert_SheetDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F6648C1D615D84005C3E82 /* Alert_SheetDemoTests.m */; };
 		08F664981D615D84005C3E82 /* Alert_SheetDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F664971D615D84005C3E82 /* Alert_SheetDemoUITests.m */; };
 		08F664A71D615DE2005C3E82 /* UIViewController+TggAlertExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F664A61D615DE2005C3E82 /* UIViewController+TggAlertExtension.m */; };
-		08F664AC1D615DF3005C3E82 /* UIActionSheet+tgg_block.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F664A91D615DF3005C3E82 /* UIActionSheet+tgg_block.m */; };
 		08F664AD1D615DF3005C3E82 /* UIViewController+TggActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F664AB1D615DF3005C3E82 /* UIViewController+TggActionSheet.m */; };
-		08F664B01D615E06005C3E82 /* UIAlertView+tgg_Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F664AF1D615E06005C3E82 /* UIAlertView+tgg_Block.m */; };
+		81D253351DE9E666009B5E8A /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D253341DE9E666009B5E8A /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +41,6 @@
 		08F664731D615D84005C3E82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08F664751D615D84005C3E82 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08F664761D615D84005C3E82 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		08F664781D615D84005C3E82 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		08F664791D615D84005C3E82 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		08F6647C1D615D84005C3E82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08F6647E1D615D84005C3E82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08F664811D615D84005C3E82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,12 +53,10 @@
 		08F664991D615D84005C3E82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08F664A51D615DE2005C3E82 /* UIViewController+TggAlertExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TggAlertExtension.h"; sourceTree = "<group>"; };
 		08F664A61D615DE2005C3E82 /* UIViewController+TggAlertExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TggAlertExtension.m"; sourceTree = "<group>"; };
-		08F664A81D615DF3005C3E82 /* UIActionSheet+tgg_block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+tgg_block.h"; sourceTree = "<group>"; };
-		08F664A91D615DF3005C3E82 /* UIActionSheet+tgg_block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+tgg_block.m"; sourceTree = "<group>"; };
 		08F664AA1D615DF3005C3E82 /* UIViewController+TggActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TggActionSheet.h"; sourceTree = "<group>"; };
 		08F664AB1D615DF3005C3E82 /* UIViewController+TggActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TggActionSheet.m"; sourceTree = "<group>"; };
-		08F664AE1D615E06005C3E82 /* UIAlertView+tgg_Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+tgg_Block.h"; sourceTree = "<group>"; };
-		08F664AF1D615E06005C3E82 /* UIAlertView+tgg_Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+tgg_Block.m"; sourceTree = "<group>"; };
+		81D253331DE9E666009B5E8A /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		81D253341DE9E666009B5E8A /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,16 +109,12 @@
 			children = (
 				08F664751D615D84005C3E82 /* AppDelegate.h */,
 				08F664761D615D84005C3E82 /* AppDelegate.m */,
-				08F664781D615D84005C3E82 /* ViewController.h */,
-				08F664791D615D84005C3E82 /* ViewController.m */,
-				08F664AE1D615E06005C3E82 /* UIAlertView+tgg_Block.h */,
-				08F664AF1D615E06005C3E82 /* UIAlertView+tgg_Block.m */,
-				08F664A81D615DF3005C3E82 /* UIActionSheet+tgg_block.h */,
-				08F664A91D615DF3005C3E82 /* UIActionSheet+tgg_block.m */,
-				08F664AA1D615DF3005C3E82 /* UIViewController+TggActionSheet.h */,
-				08F664AB1D615DF3005C3E82 /* UIViewController+TggActionSheet.m */,
+				81D253331DE9E666009B5E8A /* TableViewController.h */,
+				81D253341DE9E666009B5E8A /* TableViewController.m */,
 				08F664A51D615DE2005C3E82 /* UIViewController+TggAlertExtension.h */,
 				08F664A61D615DE2005C3E82 /* UIViewController+TggAlertExtension.m */,
+				08F664AA1D615DF3005C3E82 /* UIViewController+TggActionSheet.h */,
+				08F664AB1D615DF3005C3E82 /* UIViewController+TggActionSheet.m */,
 				08F6647B1D615D84005C3E82 /* Main.storyboard */,
 				08F6647E1D615D84005C3E82 /* Assets.xcassets */,
 				08F664801D615D84005C3E82 /* LaunchScreen.storyboard */,
@@ -222,7 +212,7 @@
 		08F664671D615D84005C3E82 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "铁哥哥";
 				TargetAttributes = {
 					08F6646E1D615D84005C3E82 = {
@@ -291,13 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F6647A1D615D84005C3E82 /* ViewController.m in Sources */,
 				08F664771D615D84005C3E82 /* AppDelegate.m in Sources */,
 				08F664A71D615DE2005C3E82 /* UIViewController+TggAlertExtension.m in Sources */,
-				08F664AC1D615DF3005C3E82 /* UIActionSheet+tgg_block.m in Sources */,
 				08F664741D615D84005C3E82 /* main.m in Sources */,
 				08F664AD1D615DF3005C3E82 /* UIViewController+TggActionSheet.m in Sources */,
-				08F664B01D615E06005C3E82 /* UIAlertView+tgg_Block.m in Sources */,
+				81D253351DE9E666009B5E8A /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,8 +354,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -411,8 +401,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -443,7 +435,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Alert&SheetDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tiegege.tiequantech.Alert-SheetDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -458,7 +450,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Alert&SheetDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tiegege.tiequantech.Alert-SheetDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

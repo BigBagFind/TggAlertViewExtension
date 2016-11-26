@@ -9,6 +9,11 @@
 #import "UIViewController+TggActionSheet.h"
 #import <objc/runtime.h>
 
+#define TggRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define TggNavBarColor              TggRGBColor(36, 171, 27)
+
+
 #pragma mark - 为UIViewController扩展弹窗视图
 static void *TggActionSheetKey = &TggActionSheetKey;
 @implementation UIViewController (TggActionSheet)
@@ -17,11 +22,12 @@ static void *TggActionSheetKey = &TggActionSheetKey;
 - (void)tgg_presentActionSheetWithTitle:(NSString *)title
                                 message:(NSString *)message
                           contentTitles:(NSArray *)contentTitles
-                          selectedBlock:(SucceedBlock)block{
+                          selectedBlock:(SucceedBlock)block {
     // 大于8.0弹出AlertController
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
     
         UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
+        alertVc.view.tintColor = TggNavBarColor;
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         [alertVc addAction:cancel];
         
@@ -36,13 +42,14 @@ static void *TggActionSheetKey = &TggActionSheetKey;
         
     // 小于8.0弹出ActionSheet
     } else {
+        
         // 拼接title和message,用空格隔开
         NSString *finalTitle;
         if (title && title.length > 0 && message.length > 0 && message) {
             finalTitle = [NSString stringWithFormat:@"%@ %@",title,message];
-        }else if(title && title.length > 0 && (message.length == 0 || !message)) {
+        } else if (title && title.length > 0 && (message.length == 0 || !message)) {
             finalTitle = title;
-        }else if ((!title || title.length == 0) && message.length > 0 && message) {
+        } else if ((!title || title.length == 0) && message.length > 0 && message) {
             finalTitle = message;
         }
         
@@ -73,7 +80,7 @@ static void *ActionSheetKey = &ActionSheetKey;
 
 /** 展示UIActionSheet同带block */
 - (void)showInView:(UIView *)view
-             block:(SucceedBlock)block{
+             block:(SucceedBlock)block {
     if (block) {
         objc_setAssociatedObject(self, ActionSheetKey, block, OBJC_ASSOCIATION_COPY_NONATOMIC);
         self.delegate = self;
@@ -81,7 +88,7 @@ static void *ActionSheetKey = &ActionSheetKey;
     }
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     SucceedBlock block = objc_getAssociatedObject(self, ActionSheetKey);
     block(buttonIndex);
 }
