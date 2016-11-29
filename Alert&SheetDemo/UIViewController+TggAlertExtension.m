@@ -53,7 +53,7 @@ static void *AlertViewKey = &AlertViewKey;
 @implementation UIViewController (TggAlertExtension)
 
 
-#pragma mark - 便利生产方法
+#pragma mark - PublicMethod
 
 - (void)tgg_presentAlertViewWithMainTitle:(NSString *)mainTitle
                               actionTitle:(NSString *)actionTitle {
@@ -61,9 +61,7 @@ static void *AlertViewKey = &AlertViewKey;
                                     message:nil
                                  firstTitle:actionTitle
                                 secondTitle:nil
-                               successBlock:^(NSUInteger selectedIndex) {
-                                   
-                               }];
+                               successBlock:nil];
 }
 
 - (void)tgg_presentAlertViewWithMainTitle:(NSString *)mainTitle
@@ -82,9 +80,7 @@ static void *AlertViewKey = &AlertViewKey;
                                     message:message
                                  firstTitle:actionTitle
                                 secondTitle:nil
-                               successBlock:^(NSUInteger selectedIndex) {
-                                   
-                               }];
+                               successBlock:nil];
 }
 
 - (void)tgg_presentAlertViewWithMessage:(NSString *)message
@@ -104,9 +100,7 @@ static void *AlertViewKey = &AlertViewKey;
                                     message:message
                                  firstTitle:actionTitle
                                 secondTitle:nil
-                               successBlock:^(NSUInteger selectedIndex) {
-                                   
-                               }];
+                               successBlock:nil];
 }
 
 - (void)tgg_presentAlertViewWithMainTitle:(NSString *)mainTitle
@@ -122,17 +116,21 @@ static void *AlertViewKey = &AlertViewKey;
 
 
 
+- (void)tgg_presentAlertViewWithMainTitle:(NSString *)mainTitle
+                                  message:(NSString *)message
+                              firstAction:(NSString *)firstAction
+                             secondAction:(NSString *)secondAction
+                             successBlock:(SuccessBlock)successBlock {
+    [self tgg_presentAlertViewWithMainTitle:mainTitle
+                                    message:message
+                                 firstTitle:firstAction
+                                secondTitle:secondAction
+                               successBlock:successBlock];
+}
 
-#pragma mark - 基本生产方法
-/**
- *  弹出AlertView，并且适配version8.0上下
- *
- *  @param mainTitle    顶部主要title提示
- *  @param message      需要表达的提示信息
- *  @param firTitle     第一个按钮的title
- *  @param secTitle     第二个按钮的title
- *  @param successBlock 点击按钮的成功回调
- */
+
+#pragma mark - PrivateMethod
+
 - (void)tgg_presentAlertViewWithMainTitle:(NSString *)mainTitle
                                   message:(NSString *)message
                                firstTitle:(NSString *)firTitle
@@ -141,13 +139,15 @@ static void *AlertViewKey = &AlertViewKey;
     
     mainTitle = (mainTitle && mainTitle.length > 0) ? mainTitle : nil;
     message = (message && message.length > 0) ? message : nil;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] <= 8.0) {
         
         UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:mainTitle message:message preferredStyle:1];
         
         
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:firTitle style:0 handler:^(UIAlertAction * _Nonnull action) {
-            successBlock(0);
+            if (successBlock) {
+                successBlock(0);
+            }
         }];
         
         
@@ -155,18 +155,36 @@ static void *AlertViewKey = &AlertViewKey;
         
         if (secTitle && secTitle.length > 0) {
             UIAlertAction *confirm = [UIAlertAction actionWithTitle:secTitle style:0 handler:^(UIAlertAction * _Nonnull action) {
-                successBlock(1);
+                if (successBlock) {
+                    successBlock(1);
+                }
             }];
             [alertVc addAction:confirm];
+        }
+        
+        if (mainTitle.length == 0) {
+            NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:message];
+            [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, message.length)];
+            [alertVc setValue:alertControllerMessageStr forKey:@"attributedMessage"];
         }
         
         [self presentViewController:alertVc animated:YES completion:nil];
         
     } else {
         
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:mainTitle message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:firTitle,(secTitle && secTitle.length > 0) ? secTitle : nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:mainTitle message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:firTitle, (secTitle.length > 0) ? secTitle : nil, nil];
+        
+        if (mainTitle.length == 0) {
+            UIAlertController *alertVc = [alertView valueForKey:@"alertController"];
+            NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:message];
+            [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, message.length)];
+            [alertVc setValue:alertControllerMessageStr forKey:@"attributedMessage"];
+        }
+        
         [alertView showWithBlock:^(NSUInteger selectedIndex) {
-            successBlock(selectedIndex);
+            if (successBlock) {
+                successBlock(selectedIndex);
+            }
         }];
 
     }

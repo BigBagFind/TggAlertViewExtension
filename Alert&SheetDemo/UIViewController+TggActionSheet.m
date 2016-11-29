@@ -2,8 +2,8 @@
 //  UIViewController+tgg_actionSheet.m
 //  喵喵
 //
-//  Created by 铁拳科技 on 16/8/8.
-//  Copyright © 2016年 铁拳科技. All rights reserved.
+//  Created by 铁哥的mbp on 16/8/15.
+//  Copyright © 2016年 铁哥哥. All rights reserved.
 //
 
 #import "UIViewController+TggActionSheet.h"

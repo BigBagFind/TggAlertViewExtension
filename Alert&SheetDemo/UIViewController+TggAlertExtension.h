@@ -56,16 +56,16 @@ typedef void(^SuccessBlock)(NSUInteger selectedIndex);
 /**
  *  弹出AlertView的基本方法,最多2个action
  *
- *  @param mainTitle    顶部title
- *  @param message      主要的message
- *  @param firTitle     第一个actionTitle
- *  @param secTitle     第二个actionTitle
+ *  @param mainTitle      顶部title
+ *  @param message        主要的message
+ *  @param firstAction    第一个actionTitle
+ *  @param secondAction   第二个actionTitle
  *  @param successBlock 点击成功的回调
  */
 - (void)tgg_presentAlertViewWithMainTitle:(NSString *)mainTitle
                                   message:(NSString *)message
-                               firstTitle:(NSString *)firTitle
-                              secondTitle:(NSString *)secTitle
+                              firstAction:(NSString *)firstAction
+                             secondAction:(NSString *)secondAction
                              successBlock:(SuccessBlock)successBlock;
 
 
