@@ -1,4 +1,6 @@
 #### AlertCategory，定义封装UIViewController的类目扩展，让API更简单，弹出UIAlertViewOrUIAlertController，适配version8.0上下
+#### 修改内容
+##### 增加了message左对齐显示接口
 #### 如果有一点用的话，就来个Star吧
 ### HowToUse：
 ### 1.下载本Demo，把UIViewController+TggAlertExtension直接拖到你的工程
