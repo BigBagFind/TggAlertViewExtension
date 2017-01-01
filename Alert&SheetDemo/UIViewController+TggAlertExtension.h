@@ -6,9 +6,24 @@
 //  Copyright © 2016年 铁哥哥. All rights reserved.
 //
 #import <UIKit/UIKit.h>
+
+/**
+ *  现在需求一般就这两种
+ *  默认第一种
+ */
+typedef NS_ENUM(NSUInteger, TggAlertMessageTextAlimentStyle) {
+    TggMessageTextAlimentStyleDefault = 0,
+    TggMessageTextAlimentStyleLeft = 1,
+    TggMessageTextAlimentStyleCenter = 2
+};
+
 typedef void(^SuccessBlock)(NSUInteger selectedIndex);
 
+
 @interface UIViewController (TggAlertExtension)
+
+
+#pragma mark - 一上一下:不带Block和带Block
 
 /**
  *  弹出AlertView就一个action，无message无block
@@ -51,8 +66,6 @@ typedef void(^SuccessBlock)(NSUInteger selectedIndex);
                               actionTitle:(NSString *)actionTitle
                              successBlock:(SuccessBlock)successBlock;
 
-
-
 /**
  *  弹出AlertView的基本方法,最多2个action
  *
@@ -69,8 +82,23 @@ typedef void(^SuccessBlock)(NSUInteger selectedIndex);
                              successBlock:(SuccessBlock)successBlock;
 
 
+#pragma mark - Message左对齐显示样式
+/**
+ *  弹出AlertView就一个action的基础方法
+ *  message左对齐
+ *  带block回调
+ */
+- (void)tgg_presentAlertViewWithMainTitle:(NSString *)mainTitle
+                          TextLeftMessage:(NSString *)message
+                              actionTitle:(NSString *)actionTitle
+                             successBlock:(SuccessBlock)successBlock;
 
 
+- (void)tgg_presentAlertViewWithMainTitle:(NSString *)mainTitle
+                          TextLeftMessage:(NSString *)message
+                              firstAction:(NSString *)firstAction
+                             secondAction:(NSString *)secondAction
+                             successBlock:(SuccessBlock)successBlock;
 
 
 @end

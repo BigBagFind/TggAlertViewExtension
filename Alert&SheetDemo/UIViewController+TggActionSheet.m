@@ -90,7 +90,9 @@ static void *ActionSheetKey = &ActionSheetKey;
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     SucceedBlock block = objc_getAssociatedObject(self, ActionSheetKey);
-    block(buttonIndex);
+    if (block) {
+       block(buttonIndex);
+    }
 }
 
 

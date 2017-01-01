@@ -9,6 +9,8 @@
 #import "TableViewController.h"
 #import "UIViewController+TggAlertExtension.h"
 #import <objc/runtime.h>
+#import <Messages/Messages.h>
+#import <MessageUI/MessageUI.h>
 
 @interface TableViewController () 
 
@@ -19,65 +21,80 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*
-    UIAlertView *a = [[UIAlertView alloc] init];
+    
+    UIAlertController *a = [[UIAlertController alloc] init];
     NSLog(@"********所有变量/值:\n%@", [self getAllIvar:a]);
     NSLog(@"********所有属性:\n%@", [self getAllProperty:a]);
-     */
+    
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    switch (indexPath.row) {
-        case 0:
-            [self tgg_presentAlertViewWithMainTitle:@"BoldTitle" message:@"message,TwoAction" firstAction:@"first" secondAction:@"second" successBlock:^(NSUInteger selectedIndex) {
-                NSLog(@"selectedIndex:%zd",selectedIndex);
-            }];
-            break;
-        case 1:
-            [self tgg_presentAlertViewWithMainTitle:@"BoldTitle"
-                                            message:@"systemMessage,WithClickedBlock"
-                                        actionTitle:@"ok"
-                                       successBlock:^(NSUInteger selectedIndex) {
-                                           NSLog(@"ok clicked");
-                                       }];
-            break;
-        case 2:
-            [self tgg_presentAlertViewWithMainTitle:@"BoldTitle"
-                                            message:@"systemMessage"
-                                        actionTitle:@"ok"];
-            break;
-        case 3:
-            [self tgg_presentAlertViewWithMessage:@"systemMessage,WithClickedBlock"
-                                        actionTitle:@"ok"
-                                       successBlock:^(NSUInteger selectedIndex) {
-                                           NSLog(@"ok clicked");
-                                       }];
-            break;
-        case 4:
-            [self tgg_presentAlertViewWithMessage:@"systemMessage"
-                                      actionTitle:@"ok"
-                                     successBlock:^(NSUInteger selectedIndex) {
-                                         NSLog(@"ok clicked");
-                                     }];
-            break;
-        case 5:
-            [self tgg_presentAlertViewWithMainTitle:@"BoldTitle"
-                                        actionTitle:@"ok"];
-            break;
-        case 6:
-            [self tgg_presentAlertViewWithMainTitle:@"BoldTitle,WithClickedBlock"
-                                        actionTitle:@"ok"
-                                       successBlock:^(NSUInteger selectedIndex) {
-                                           NSLog(@"ok clicked");
-                                       }];
-            break;
-        default:
-            break;
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                [self tgg_presentAlertViewWithMainTitle:@"BoldTitle" message:@"message,TwoAction" firstAction:@"first" secondAction:@"second" successBlock:^(NSUInteger selectedIndex) {
+                    NSLog(@"selectedIndex:%zd",selectedIndex);
+                }];
+                break;
+            case 1:
+                [self tgg_presentAlertViewWithMainTitle:@"BoldTitle"
+                                                message:@"systemMessage,WithClickedBlock"
+                                            actionTitle:@"ok"
+                                           successBlock:^(NSUInteger selectedIndex) {
+                                               NSLog(@"ok clicked");
+                                           }];
+                break;
+            case 2:
+                [self tgg_presentAlertViewWithMainTitle:@"BoldTitle"
+                                                message:@"systemMessage"
+                                            actionTitle:@"ok"];
+                break;
+            case 3:
+                [self tgg_presentAlertViewWithMessage:@"主要内容:\n1.systemMessage,WithClickedBlock\n2.hahah\n3.okokokok"
+                                          actionTitle:@"ok"
+                                         successBlock:^(NSUInteger selectedIndex) {
+                                             NSLog(@"ok clicked");
+                                         }];
+                break;
+            case 4:
+                [self tgg_presentAlertViewWithMessage:@"systemMessage"
+                                          actionTitle:@"ok"
+                                         successBlock:^(NSUInteger selectedIndex) {
+                                             NSLog(@"ok clicked");
+                                         }];
+                break;
+            case 5:
+                [self tgg_presentAlertViewWithMainTitle:@"BoldTitle"
+                                            actionTitle:@"ok"];
+                break;
+            case 6:
+                [self tgg_presentAlertViewWithMainTitle:@"BoldTitle,WithClickedBlock"
+                                            actionTitle:@"ok"
+                                           successBlock:^(NSUInteger selectedIndex) {
+                                               NSLog(@"ok clicked");
+                                           }];
+                break;
+            default:
+                break;
+        }
+    } else {
+        switch (indexPath.row) {
+            case 0:
+                [self tgg_presentAlertViewWithMainTitle:@"发现新版本V2.0" TextLeftMessage:
+                 @"主要内容:\n1.666\n2.6666\n3.66666\n最后鱼丸关注走一发" actionTitle:@"马上关注" successBlock:^(NSUInteger selectedIndex) {
+                     NSLog(@"您点击了马上关注");
+                }];
+                break;
+            case 1:
+                [self tgg_presentAlertViewWithMainTitle:@"发现新版本V2.0" TextLeftMessage:@"主要内容:\n1.666\n2.6666\n3.66666\n最后鱼丸关注走一发" firstAction:@"actionOne" secondAction:@"actionTwo" successBlock:^(NSUInteger selectedIndex) {
+                    NSLog(@"您点击了第%zd个action",selectedIndex);
+                }];
+            default:
+                break;
+        }
     }
-    
-    
 }
 
 //获得所有变量
@@ -100,7 +117,9 @@
             }
             [array addObject:dic];
         }
-        @catch (NSException *exception) {}
+        @catch (NSException *exception) {
+            NSLog(@"baocuo");
+        }
     }
     return [array copy];
 }
